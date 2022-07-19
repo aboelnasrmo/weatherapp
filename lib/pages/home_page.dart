@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weatherapp/models/weather_model.dart';
 import 'package:weatherapp/pages/search_page.dart';
+import 'package:weatherapp/providers/weather_provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   WeatherModel? weatherData;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +31,7 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.search))
         ],
       ),
-      body: weatherData == null
+      body: Provider.of<WeatherProvider>(context).weatherData == null
           ? const Padding(
               padding: EdgeInsets.all(30.0),
               child: Center(
