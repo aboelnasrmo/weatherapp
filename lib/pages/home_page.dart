@@ -48,31 +48,33 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const Spacer(flex: 3),
                   Text(
-                    'Cairo',
+                    '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.name}',
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'date',
+                    '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.date}',
                     style: TextStyle(fontSize: 18),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset('assets/images/clear.png'),
+                      Image.asset(Provider.of<WeatherProvider>(context)
+                          .weatherData!
+                          .getImage()),
                       Text(
-                        '30',
+                        '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.temp}',
                         style: TextStyle(
                             fontSize: 32, fontWeight: FontWeight.bold),
                       ),
                       Column(
                         children: [
                           Text(
-                            'Max Temp : 30',
+                            'Max Temp : ${Provider.of<WeatherProvider>(context, listen: true).weatherData!.maxTemp}',
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Min Temp : 12',
+                            'Min Temp : ${Provider.of<WeatherProvider>(context, listen: true).weatherData!.minTemp}',
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.bold),
                           ),
@@ -82,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const Spacer(flex: 2),
                   Text(
-                    'Weather state',
+                    '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.weatherStateName}',
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(flex: 5),

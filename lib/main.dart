@@ -13,7 +13,7 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
+    return ChangeNotifierProvider(
       create: (BuildContext context) {
         return WeatherProvider();
       },

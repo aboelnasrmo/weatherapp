@@ -28,7 +28,10 @@ class SearchPage extends StatelessWidget {
               WeatherService service = WeatherService();
               WeatherModel weather =
                   await service.getWeather(cityName: cityName!);
-              Provider.of<WeatherProvider>(context).weatherData = weather;
+              Provider.of<WeatherProvider>(context, listen: false).weatherData =
+                  weather;
+
+              print('${weather}');
               Navigator.pop(context);
             },
           ),
