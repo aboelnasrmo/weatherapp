@@ -65,11 +65,12 @@ class _HomePageState extends State<HomePage> {
                   const Spacer(flex: 3),
                   Text(
                     '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.name}',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.date}',
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -79,19 +80,19 @@ class _HomePageState extends State<HomePage> {
                           .getImage()),
                       Text(
                         '${Provider.of<WeatherProvider>(context, listen: true).weatherData!.temp}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 32, fontWeight: FontWeight.bold),
                       ),
                       Column(
                         children: [
                           Text(
                             'Max Temp : ${Provider.of<WeatherProvider>(context, listen: true).weatherData!.maxTemp}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.bold),
                           ),
                           Text(
                             'Min Temp : ${Provider.of<WeatherProvider>(context, listen: true).weatherData!.minTemp}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.bold),
                           ),
                         ],

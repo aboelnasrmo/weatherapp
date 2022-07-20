@@ -15,7 +15,7 @@ class SearchPage extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: TextField(
             decoration: InputDecoration(
               suffixIcon: GestureDetector(
@@ -29,10 +29,10 @@ class SearchPage extends StatelessWidget {
                     print('${weather}');
                     Navigator.pop(context);
                   },
-                  child: Icon(Icons.search)),
-              label: Text('Search'),
+                  child: const Icon(Icons.search)),
+              label: const Text('Search'),
               hintText: 'Enter a City',
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
             ),
             onChanged: (data) async {
               cityName = data;
