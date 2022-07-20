@@ -42,7 +42,20 @@ class _HomePageState extends State<HomePage> {
               ),
             )
           : Container(
-              color: Colors.orange,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Provider.of<WeatherProvider>(context)
+                        .weatherData!
+                        .getColor(),
+                    Provider.of<WeatherProvider>(context)
+                        .weatherData!
+                        .getColor()[50]!,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

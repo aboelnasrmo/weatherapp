@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class WeatherModel {
   String weatherStateName;
   String date;
@@ -60,6 +62,28 @@ class WeatherModel {
       return 'assets/images/thunderstorm.png';
     } else {
       return 'assets/images/clear.png';
+    }
+  }
+
+  MaterialColor getColor() {
+    if (weatherStateName == 'Clear' || weatherStateName == 'Light Cloud') {
+      return Colors.orange;
+    } else if (weatherStateName == 'Sleet' ||
+        weatherStateName == 'Snow' ||
+        weatherStateName == 'Hail') {
+      return Colors.blue;
+    } else if (weatherStateName == 'Heavy Cloud') {
+      return Colors.blueGrey;
+    } else if (weatherStateName == 'Light Rain' ||
+        weatherStateName == 'Patchy rain possible' ||
+        weatherStateName == 'Heavy Rain' ||
+        weatherStateName == 'Showers	') {
+      return Colors.blue;
+    } else if (weatherStateName == 'Thunderstorm' ||
+        weatherStateName == 'Thunder') {
+      return Colors.deepPurple;
+    } else {
+      return Colors.orange;
     }
   }
 }
