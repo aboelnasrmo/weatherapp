@@ -50,7 +50,10 @@ class _HomePageState extends State<HomePage> {
                         .getColor(),
                     Provider.of<WeatherProvider>(context)
                         .weatherData!
-                        .getColor()[50]!,
+                        .getColor()[300]!,
+                    Provider.of<WeatherProvider>(context)
+                        .weatherData!
+                        .getColor()[100]!
                   ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
