@@ -21,7 +21,7 @@ class SearchPage extends StatelessWidget {
               suffixIcon: GestureDetector(
                   onTap: () async {
                     WeatherService service = WeatherService();
-                    WeatherModel weather =
+                    WeatherModel? weather =
                         await service.getWeather(cityName: cityName!);
                     Provider.of<WeatherProvider>(context, listen: false)
                         .weatherData = weather;
@@ -40,7 +40,7 @@ class SearchPage extends StatelessWidget {
             onSubmitted: (data) async {
               cityName = data;
               WeatherService service = WeatherService();
-              WeatherModel weather =
+              WeatherModel? weather =
                   await service.getWeather(cityName: cityName!);
               Provider.of<WeatherProvider>(context, listen: false).weatherData =
                   weather;
