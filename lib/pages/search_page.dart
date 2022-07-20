@@ -17,12 +17,26 @@ class SearchPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: TextField(
-            decoration: const InputDecoration(
-              suffixIcon: Icon(Icons.search),
+            decoration: InputDecoration(
+              suffixIcon: GestureDetector(
+                  onTap: () async {
+                    WeatherService service = WeatherService();
+                    WeatherModel weather =
+                        await service.getWeather(cityName: cityName!);
+                    Provider.of<WeatherProvider>(context, listen: false)
+                        .weatherData = weather;
+
+                    print('${weather}');
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.search)),
               label: Text('Search'),
               hintText: 'Enter a City',
               border: OutlineInputBorder(),
             ),
+            onChanged: (data) async {
+              cityName = data;
+            },
             onSubmitted: (data) async {
               cityName = data;
               WeatherService service = WeatherService();
