@@ -21,7 +21,7 @@ class WeatherModel {
     var jsonData = data['forecast']['forecastday'][0];
     return WeatherModel(
       weatherStateName: jsonData['day']['condition']['text'],
-      date: jsonData['date'],
+      date: data['location']['localtime'],
       temp: jsonData['day']['avgtemp_c'],
       minTemp: jsonData['day']['mintemp_c'],
       maxTemp: jsonData['day']['maxtemp_c'],
